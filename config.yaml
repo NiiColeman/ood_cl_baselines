@@ -1,0 +1,40 @@
+data:
+  path: /leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/data
+  batch_size: 32
+
+
+model:
+  name: vit_base_patch16_224
+  pretrained: true
+
+training:
+  learning_rate: 1e-4
+  epochs: 10
+
+lora:
+  r: 8
+  alpha: 8
+  dropout: 0.1
+  target_modules: ['qkv']
+
+l2p:
+  prompt_pool: true
+  pool_size: 20
+  prompt_length: 5
+  top_k: 5
+  sim_coefficient: 0.1
+  prompt_key: true
+
+output:
+  path: models/output.pth
+
+benchmark:
+  cifar100: 100
+  tinyimagenet: 200
+  cub200: 200
+  stream51: 51
+  fgvc-aircraft: 100
+
+wandb:
+  mode: offline
+  project: OOD baselines

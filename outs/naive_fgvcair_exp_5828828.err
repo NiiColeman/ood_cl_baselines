@@ -1,0 +1,8 @@
+usage: main.py [-h] [--config CONFIG] --data_path DATA_PATH --dataset
+               {cifar100,stream51,cub200,fgvc_aircraft,tinyimagenet}
+               --experiment
+               {continual_lora,l2p,naive_finetuning,vit_lora_finetuning}
+               [--output_path OUTPUT_PATH] [--benchmark_type {nc,ni,cir}]
+               [--lora_rank LORA_RANK] [--num_epochs NUM_EPOCHS]
+               [--batch_size BATCH_SIZE] [--learning_rate LEARNING_RATE]
+main.py: error: argument --data_path: expected one argument

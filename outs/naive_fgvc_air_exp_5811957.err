@@ -1,0 +1,60 @@
+INFO:timm.models._builder:Loading pretrained weights from Hugging Face hub (timm/vit_base_patch16_224.augreg2_in21k_ft_in1k)
+INFO:timm.models._hub:[timm/vit_base_patch16_224.augreg2_in21k_ft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+INFO:timm.models._builder:Missing keys (head.weight, head.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+Traceback (most recent call last):
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 1282, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 1328, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 1277, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 1037, in _send_output
+    self.send(msg)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 975, in send
+    self.connect()
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 1447, in connect
+    super().connect()
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/http/client.py", line 941, in connect
+    self.sock = self._create_connection(
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/baselines/main.py", line 45, in <module>
+    main()
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/baselines/main.py", line 36, in main
+    experiment = NaiveFineTuningExperiment(args)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/baselines/experiments/naive_finetuning.py", line 31, in __init__
+    train_dataset = get_dataset(self.args.dataset, self.args.data_path, train=True, transform=train_transform)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/baselines/datasets/datasets.py", line 83, in get_dataset
+    return datasets.FGVCAircraft(root=data_path, split=split, annotation_level='variant', transform=transform, download=True)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/l2/lib/python3.10/site-packages/torchvision/datasets/fgvc_aircraft.py", line 60, in __init__
+    self._download()
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/l2/lib/python3.10/site-packages/torchvision/datasets/fgvc_aircraft.py", line 112, in _download
+    download_and_extract_archive(self._URL, self.root)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/l2/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 395, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/l2/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 122, in download_url
+    url = _get_redirect_url(url, max_hops=max_redirect_hops)
+  File "/leonardo_scratch/fast/IscrC_FoundCL/cl/lora-CL/l2/lib/python3.10/site-packages/torchvision/datasets/utils.py", line 66, in _get_redirect_url
+    with urllib.request.urlopen(urllib.request.Request(url, headers=headers)) as response:
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/leonardo/prod/spack/03/ccsdeploy/spack_deploy/envs/cineca-ai-3/._view/i3cjegj2k2ukaywc3gz4zqdjxxwynnw2/lib/python3.10/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 101] Network is unreachable>

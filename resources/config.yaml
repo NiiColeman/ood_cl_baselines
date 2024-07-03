@@ -1,0 +1,68 @@
+# General settings
+seed: 42
+num_classes: 200  # Adjust based on your dataset
+output_path: "output"
+
+# Wandb settings
+wandb:
+  wandb_project: "OOD BASELINES"
+  wandb_mode: "offline"
+  wandb_name: "experiment_run"
+
+# Dataset settings
+datasets:
+  cifar100:
+    num_classes: 100
+  cub200:
+    num_classes: 200
+  fgvc_aircraft:
+    num_classes: 100
+  stream51:
+    num_classes: 51
+  tinyimagenet:
+    num_classes: 200
+
+# Model settings
+model:
+  name: "vit_base_patch16_224"
+  pretrained: true
+
+# Training settings
+training:
+  batch_size: 32
+  num_epochs: 10
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+
+# Continual Learning settings
+cl:
+  n_experiences: 10
+  replay_size: 200
+
+# LoRA settings
+lora:
+  rank: 16
+  alpha: 16
+  dropout: 0.1
+
+# Learning to Prompt settings
+l2p:
+  prompt_pool: true
+  pool_size: 20
+  prompt_length: 5
+  top_k: 5
+
+# Experiment-specific settings
+experiments:
+  continual_lora:
+    pruning_theta: 0.1
+  
+  l2p:
+    use_mask: true
+  
+  naive_finetuning:
+    freeze_backbone: true
+  
+  vit_lora_finetuning:
+    freeze_backbone: true
+
